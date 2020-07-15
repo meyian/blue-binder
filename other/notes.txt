@@ -1,0 +1,77 @@
+Todo
+
+* Test the themed blog
+* Page view counter/Google analytics
+
+
+
+
+Wed 15 Jul
+
+Today is my first...
+
+#before_launch #beginnings #Prokofiev
+
+Today, I set up the very site you're looking at. I fancy myself a bit of a designer, so I spent more time than I strictly needed here. Challenge #1 of 100 days of Gatsby said I only needed to make a blog to record my process, and here I am, deciding to go dumb on 'em and make this. What do you know about tricking out the homescreen with animations and shit? I've been doing this since the 80s! Google me, baby, you crazy?
+
+I wanted to use TypeScript to build this site, because I think JavaScript is the future, and TypeScript is the future of JavaScript. It's too big to fail at this point. Catch me less busy, and I might tell you why I think that is. (Click here to vote if I should!) But suffice it to say that for now, every chance to practice my TypeScript is an opportunity warmly welcomed by me. Gatsby has a TypeScript starter kit, with all the settings steezed up to just work with TypeScript out of the box, but it's a version 1.9.119 according to yarn.lock. Which means it's not yet version 2, which would explain why there's an index.tsx file automatically providing layout. They said they stopped doing that in version 2. So my first task in getting this up is updating this to version 2. I shouldn't be stuck in the past, and the new version's way of dealing with layout files makes much more sense to me.
+
+So kicking it off with some Gatsby.com reading about how to migrate from version 1 to version 2. Not as exciting a start to things as I would have hoped, but that's what I've got to do at this moment. Maybe I'll package
+
+
+
+
+
+
+Wed 15 Jul
+
+I just posted about this on Twitter:
+
+  Thanks to @arjithn's encouragement, I'm doing the Gatsby 100 days challenge. This is my first 100 days challenge, public or private. Name and shame me if I don't post about it every day. Well, not that, maybe. But you know. Wish me luck, or something. #100DaysOfGatsby
+
+Dear god, it's official now, isn't it? Just like my mission to also cut out processed sugar from my diet, I hope I can keep to it! My intention is to make notes on this blog daily, without taking too much time out of actual development work. So these posts are all going to be spontaneous, off-the-cuff, slightly random. Should be like a computer programmer's version of a doctor's note. Scratchy and messy, but all the ideas are there.
+
+So I had to start up 4 different versions of Gatsby for things to eventually work the way I wanted it. Check the photo below. I thought working in TypeScript after picking a theme I liked would be easy. Just like a grown-up version of pressing lego bricks together to make a small stack. But themes aren't plug and play; to use a new theme you need to clone a whole repository from GitHub. You can't just, like, add a file, or copy over a folder. You have to clone a Github project, and that takes time. Not hating, but giving an example to explain where my time went.
+
+In the end, I went with `gatsby-starter-typescript-plus` by @resir014. I'll have to build out the theme myself, but that's not a problem. It's part of the challenge. I think I'll publish this theme when I'm done.
+
+![Screenshot of the numerous project folders I had to create](https://res.cloudinary.com/dwrfod96z/image/upload/c_scale,w_627/v1594846177/Screenshot_2020-07-15_at_6.00.58_AM_kzzykp.png)
+
+I think I'll keep those extra folders I created and never delete them. Just like keeping a digital tears-of-blood tattoo. I'm a thug, baby!
+
+
+
+Fri 16 Jul
+
+Tags: music, heartbreak, girls, nostalgia
+
+[Working on getting blog posts to come from .md files]
+
+I just decided I was into Bob Moses.
+
+Bob Moses - Grace (Official Audio)
+
+Why did I always have to bend backwards towards words in order to share music with her?
+
+Okay, I won't actually complain. Every once in a while I'd play a song in her car and she'd ask me, "Who's that?" Or she'd know the music of the band I was playing. She thought I had good taste in music. That's important validation to have, especially when you're aspiring to be a musician one day. I never got around to telling her that's what I wanted, but it's nice that she liked the songs I played, or looked proud that time when I played Ravel on the piano at that party we went to.
+
+I bet she'd know Bob Moses was cool. Too bad she isn't here for us to test that out and see! You know what time does to some relationships.
+
+
+Sat
+
+I trust Gatsby because
+
+-
+
+Tags: spirtuality, the end
+
+I know you're not supposed to say this as a Zen priest, but getting old sucks! Particularly towards the end when you start to die. But what a journey! Like every great or little person in existence, you too will enter into that mighty cave, an experience that humbles all. There is no point to wanting to be like me, or like anyone else in the world, dead or alive. Especially the dead ones. You have the good fortune to still be alive, so enjoy this life of yours as much as you can. Enter into it deeply. Get snug. Good luck.
+
+I've played people dying in movies before, and each time, I acted the part by pondering about my own death. What it would be like to be removed from the scene. You put my concerns inthe time
+
+-
+
+Tags: music
+
+Maybe I should remix Folamour's Devoted to U so it doesn't slow down in the middle. Like taking a chair out of the way of your weekly path through this song. It pairs great with a 2013 chardonnay.
