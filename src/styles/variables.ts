@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 
 export const colors = {
+  skyblue: '#7EC0EE',
   brand: '#663399',
   lilac: '#9d7cbf',
   accent: '#ffb238',
