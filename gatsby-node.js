@@ -1,6 +1,6 @@
-'use strict'
-
 const path = require('path')
+
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -13,12 +13,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   switch (node.internal.type) {
     case 'MarkdownRemark': {
       const { permalink, layout } = node.frontmatter
-      const { relativePath } = getNode(node.parent)
 
       let slug = permalink
 
       if (!slug) {
-        slug = `/${relativePath.replace('.md', '')}/`
+        slug = createFilePath({ node, getNode, basePath: `pages` })
       }
 
       // Used to generate URL to view this content.
@@ -34,7 +33,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'layout',
         value: layout || ''
       })
+      break
     }
+    default:
+      break
   }
 }
 
@@ -63,6 +65,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }) => {
     const { slug, layout } = node.fields
+
+    console.log('slug')
+    console.log(slug)
 
     createPage({
       path: slug,

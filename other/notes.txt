@@ -5,8 +5,25 @@ Todo
 
 
 
+Sun 19 Jul
 
-Wed 15 Jul
+I'm going to get Prettier working on this damn thing.
+
+(Wait, it already does)
+
+I wonder how Gatsby docs does reloading so quickly
+
+
+
+
+Thu 16 Jul
+
+I had to clone a fresh Gatsby install from Github for the fifth time. In my frustration, I deleted the whole folder and emptied the trash... only to now realize I lost a pretty good blog post that I had already written and was going to share after I finished the work. Ah well. As a writer, I tried not to bite my lip about it, and just power through the disappointment.
+
+
+
+
+Tue 14 Jul
 
 Today is my first...
 

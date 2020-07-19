@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 'Example Markdown page'
+date: "2017-07-20"
 ---
 
 Now we're writing in Markdown! Pretty nice, huh?
