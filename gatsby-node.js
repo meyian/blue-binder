@@ -66,9 +66,6 @@ exports.createPages = async ({ graphql, actions }) => {
   allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }) => {
     const { slug, layout } = node.fields
 
-    console.log('slug')
-    console.log(slug)
-
     createPage({
       path: slug,
       // This will automatically resolve the template to a corresponding

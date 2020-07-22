@@ -42,6 +42,31 @@ const IndexPage = ({ data }: HomePageProps) => (
   <IndexLayout>
     <Page>
       <Container>
+        <p
+          css={css`
+            font-family: 'Noto Serif';
+            font-style: italic;
+            font-weight: bold;
+          `}
+        >
+          Almost before - Noto Serif italic
+        </p>
+        <p
+          css={css`
+            font-family: 'Helvetica';
+            font-weight: 400;
+          `}
+        >
+          Almost before - Helvetica
+        </p>
+        <p
+          css={css`
+            font-family: 'Droid Serif';
+          `}
+        >
+          Almost before - Droid Serif
+        </p>
+
         <div dangerouslySetInnerHTML={{ __html: pageHtml }} />
         <div>
           <h1

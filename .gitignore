@@ -2,6 +2,9 @@
 # Node.js-Specific Ignores
 # =========================
 
+# User's
+other/
+
 # Build directory
 public/
 

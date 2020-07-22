@@ -12,6 +12,19 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Noto Serif', 'Droid Serif', 'Noto Serif:ital,wght@1,700', 'Noto Serif Bold Italic']
+        }
+      }
+    },
+    /*
+
+    'Noto Serif', 'Open Sans Condensed:300,700', 'Noto Serif Bold: 300, 700', 'Noto Serif italic: 700', 'Droid Serif'
+
+    */
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
