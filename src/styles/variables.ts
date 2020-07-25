@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 
 export const colors = {
+  maya: '#6db1f6',
+  electric: '#6dcff6',
   skyblue: '#7EC0EE',
   brand: '#663399',
   lilac: '#9d7cbf',

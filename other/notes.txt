@@ -1,12 +1,44 @@
 Todo
 
-* Test the themed blog
+The todo list:
++ create an archive page
++ get the jumotron up
+* polish the jumbotron
+* figure out how the original theme works
+* put structure to the homepage
+* decide on your index (PS)
+* code your index
+* selected picks
+* archive
 * Page view counter/Google analytics
 
 
 Theme to duplicate
 
 https://preview.themeforest.net/item/typology-text-based-minimal-wordpress-blog-theme/full_screen_preview/19547842
+
+
+Fri 24 Jul
+
+- 4:20 AM -
+
+The todo list:
++ create an archive page
+* get the jumotron up
+(release, with a new quick post - max stoiber?)
+* decide on your index (PS)
+* code your index
+* selected picks
+* archive
+
+
+- Aside -
+
+I feel like Lewis Hamilton, scheming on a machine. (palms rubbing together)
+to Gimme Something.
+  - he is racing to ideas, building architectures, building up code, smashing it down, etc.
+
+But, you know, race. you have 1 hr.
 
 
 Sun 19 Jul
@@ -96,3 +128,26 @@ I've played people dying in movies before, and each time, I acted the part by po
 Tags: music
 
 Maybe I should remix Folamour's Devoted to U so it doesn't slow down in the middle. Like taking a chair out of the way of your weekly path through this song. It pairs great with a 2013 chardonnay.
+
+
+- On Gatsby -
+
+Kyle Matthews is smart
+  - free swag for contributors - they want to be involved w/ the community in a big way. it's something to be able to walk around in a t-shirt you earned. a friend of mine got one for his sysadmin skills, etc.
+  - no wikipedia page, start writing one
+  - the way the company is run
+Max Stoiber joined them.
+Jamstack is huge
+  - can only compare it to Drupal, but this is a technique, not software
+  - decoupling the frontend and the backend is smart this is an improvement on the way things are run
+  - react is super powerful
+
+
+
+- Aside -
+
+Mastering tea is hard.
+  - There are tea masters in Japan. How can I bring some of that down? Technology has brought the water of the spring here...
+  - You have to do it in your own way, with the tools you have.
+
+I'm sure 3:00 is ideal, if you don't want bitterness to hang around in the back of your throat. But there is a compromise.
