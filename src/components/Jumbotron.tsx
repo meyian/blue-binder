@@ -14,13 +14,14 @@ TODO
 
 Aside
 
-Don't bother me, I'm workin.
+"Don't bother me, I'm workin."
 
 */
 
 const StyledHeader = styled.header`
   width: 100%;
-  height: 80vh;
+  height: 100vh;
+  color: white;
   background-color: ${colors.maya};
 `
 
@@ -29,6 +30,7 @@ const StyledLink = styled(props => <Link {...props} />)`
   font-family: 'Noto Serif';
   font-style: italic;
   font-weight: 700;
+  margin-right: 2rem;
 `
 
 interface NavItem {
@@ -57,8 +59,19 @@ const navItems: NavItem[] = [
 
 const Panel: React.FC = () => {
   return (
-    <div>
-      <h1>100 Days of Gatsby</h1>
+    <div
+      css={css`
+        width: 500px;
+      `}
+    >
+      <h1
+        css={css`
+          color: white;
+          text-align: center;
+        `}
+      >
+        100 Days of Gatsby
+      </h1>
       <p>
         This is the blog site where I'll share my thoughts about what working with Gatsby for 100 days is like. Posts are in descending
         order of when I wrote them. I don't expect anyone to take these posts seriously, but if somehow you feel the urge to react about
@@ -86,6 +99,7 @@ const Jumbotron: React.FC = () => {
     <ul
       css={css`
         float: right;
+        margin: 0;
       `}
     >
       {navItems.map(({ name, path }) => (
@@ -96,9 +110,31 @@ const Jumbotron: React.FC = () => {
 
   return (
     <StyledHeader>
-      <nav>{ul}</nav>
-      <hr />
-      <div css={css``}>
+      <nav
+        css={css`
+          display: inline-block;
+          width: 100vw;
+          padding-top: 0.3rem;
+        `}
+      >
+        {ul}
+      </nav>
+      <hr
+        css={css`
+          padding: 0;
+          margin: 0;
+          border: 2px solid #6dcff6;
+        `}
+      />
+      <div
+        css={css`
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+        `}
+      >
         <Panel />
       </div>
     </StyledHeader>
