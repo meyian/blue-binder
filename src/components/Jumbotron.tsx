@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import { colors } from '../styles/variables'
 
 /*
@@ -25,6 +25,10 @@ const StyledHeader = styled.header`
   background-color: ${colors.maya};
 `
 
+const StyledHeaderNoPanel = styled(StyledHeader)`
+  height: 50vh;
+`
+
 const StyledLink = styled(props => <Link {...props} />)`
   color: white;
   font-family: 'Noto Serif';
@@ -45,7 +49,7 @@ const navItems: NavItem[] = [
   },
   {
     name: 'About',
-    path: '/#about'
+    path: '/about'
   },
   {
     name: 'Archive',
@@ -53,48 +57,65 @@ const navItems: NavItem[] = [
   },
   {
     name: 'Contact Us',
-    path: '/#about'
+    path: '/contact'
   }
 ]
 
-const Panel: React.FC = () => {
+interface PanelProps {
+  centerPiece?: JSX.Element[] | JSX.Element | string
+  opacity?: number
+}
+
+const Panel = ({ centerPiece, opacity }: PanelProps) => {
   return (
     <div
       css={css`
         width: 500px;
+        opacity: ${opacity};
       `}
     >
-      <h1
-        css={css`
-          color: white;
-          text-align: center;
-        `}
-      >
-        100 Days of Gatsby
-      </h1>
-      <p>
-        This is the blog site where I'll share my thoughts about what working with Gatsby for 100 days is like. Posts are in descending
-        order of when I wrote them. I don't expect anyone to take these posts seriously, but if somehow you feel the urge to react about
-        anything I've said, my Twitter handle is @hassanabudu and I'm very much all ears.
-      </p>
+      {centerPiece}
     </div>
   )
 }
 
-const SuggestedMaterial: React.FC = () => {
-  return (
-    <div>
-      <h2>Suggested Reading Material</h2>
-      <p>
-        If you're here, I truly respect your time, and as such, can't really recommend anything here. It's like I'm the waiter at your
-        restaurant, trying to save you. But if you insist to sitting down for something here, I recommend the following posts:{' '}
-      </p>
-      <p>[none at the moment]</p>
-    </div>
-  )
+// const SuggestedMaterial: React.FC = () => {
+//   return (
+//     <div>
+//       <h2>Suggested Reading Material</h2>
+//       <p>
+//         If you're here, I truly respect your time, and as such, can't really recommend anything here. It's like I'm the waiter at your
+//         restaurant, trying to save you. But if you insist to sitting down for something here, I recommend the following posts:{' '}
+//       </p>
+//       <p>[none at the moment]</p>
+//     </div>
+//   )
+// }
+
+interface JumbotronProps {
+  centerPiece?: JSX.Element[] | JSX.Element | string
+  centerPieceOpacity: number
 }
 
-const Jumbotron: React.FC = () => {
+/*
+
+const IndexLayout = ({ children, centerPiece }: IndexLayoutProps) => (
+  <StaticQuery
+    query={graphql`
+      query IndexLayoutQuery {
+        site {
+          siteMetadata {
+            title
+            description
+          }
+        }
+      }
+    `}
+    render={(data: StaticQueryProps) => {
+
+*/
+
+const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
   const ul = (
     <ul
       css={css`
@@ -103,13 +124,18 @@ const Jumbotron: React.FC = () => {
       `}
     >
       {navItems.map(({ name, path }) => (
-        <StyledLink to={path}>{name}</StyledLink>
+        <StyledLink key={path} to={path}>
+          {name}
+        </StyledLink>
       ))}
     </ul>
   )
 
+  const Header = centerPiece ? StyledHeader : StyledHeaderNoPanel
+  console.table({ centerPieceOpacity })
+
   return (
-    <StyledHeader>
+    <Header>
       <nav
         css={css`
           display: inline-block;
@@ -132,12 +158,12 @@ const Jumbotron: React.FC = () => {
           flex-direction: row;
           align-items: center;
           justify-content: center;
-          height: 100%;
+          height: calc(100% - 2rem); /* TODO: 2rem to a variable */
         `}
       >
-        <Panel />
+        <Panel opacity={centerPieceOpacity} centerPiece={centerPiece} />
       </div>
-    </StyledHeader>
+    </Header>
   )
 }
 
