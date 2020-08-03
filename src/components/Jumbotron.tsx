@@ -34,7 +34,16 @@ const StyledLink = styled(props => <Link {...props} />)`
   font-family: 'Noto Serif';
   font-style: italic;
   font-weight: 700;
-  margin-right: 2rem;
+  margin-right: 0.5rem;
+  transition: 0.15s;
+  padding: 0 0.5rem;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 5px 28px 67px -24px rgba(0, 0, 0, 0.49);
+    color: ${colors.maya};
+    text-decoration: none;
+  }
 `
 
 interface NavItem {
@@ -97,23 +106,15 @@ interface JumbotronProps {
   centerPieceOpacity: number
 }
 
-/*
-
-const IndexLayout = ({ children, centerPiece }: IndexLayoutProps) => (
-  <StaticQuery
-    query={graphql`
-      query IndexLayoutQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `}
-    render={(data: StaticQueryProps) => {
-
-*/
+interface StaticQueryProps {
+  site: {
+    siteMetadata: {
+      title: string
+      description: string
+      keywords: string
+    }
+  }
+}
 
 const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
   const ul = (
@@ -124,46 +125,86 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
       `}
     >
       {navItems.map(({ name, path }) => (
-        <StyledLink key={path} to={path}>
-          {name}
-        </StyledLink>
+        <li
+          css={css`
+            display: inline-block;
+            list-decoration: none;
+          `}
+        >
+          <StyledLink key={path} to={path}>
+            {name}
+          </StyledLink>
+        </li>
       ))}
     </ul>
   )
 
   const Header = centerPiece ? StyledHeader : StyledHeaderNoPanel
-  console.table({ centerPieceOpacity })
 
   return (
-    <Header>
-      <nav
-        css={css`
-          display: inline-block;
-          width: 100vw;
-          padding-top: 0.3rem;
-        `}
-      >
-        {ul}
-      </nav>
-      <hr
-        css={css`
-          padding: 0;
-          margin: 0;
-          border: 2px solid #6dcff6;
-        `}
-      />
-      <div
-        css={css`
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          height: calc(100% - 2rem); /* TODO: 2rem to a variable */
-        `}
-      >
-        <Panel opacity={centerPieceOpacity} centerPiece={centerPiece} />
-      </div>
-    </Header>
+    <StaticQuery
+      query={graphql`
+        query JumbotronQuery {
+          site {
+            siteMetadata {
+              title
+              description
+            }
+          }
+        }
+      `}
+      render={(data: StaticQueryProps) => {
+        return (
+          <Header>
+            <div
+              css={css`
+                width: 100vw;
+                height: 2rem;
+                flex-direction: row;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              `}
+            >
+              <span
+                css={css`
+                  margin-left: 0.7rem;
+                  font-family: 'Roboto Slab', serif;
+                  font-weight: 700;
+                `}
+              >
+                {data.site.siteMetadata.title}
+              </span>
+              <nav
+                css={css`
+                  display: inline-block;
+                `}
+              >
+                {ul}
+              </nav>
+            </div>
+            <hr
+              css={css`
+                padding: 0;
+                margin: 0;
+                border: 2px solid #6dcff6;
+              `}
+            />
+            <div
+              css={css`
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                height: calc(100% - 2rem); /* TODO: 2rem to a variable */
+              `}
+            >
+              <Panel opacity={centerPieceOpacity} centerPiece={centerPiece} />
+            </div>
+          </Header>
+        )
+      }}
+    />
   )
 }
 

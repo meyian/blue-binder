@@ -15,7 +15,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Noto Serif', 'Droid Serif', 'Noto Serif:ital,wght@1,700', 'Cormorant Garamond']
+          families: ['Roboto Slab:wght@700', 'Droid Serif', 'Noto Serif:ital,wght@1,700', 'Cormorant Garamond']
         }
       }
     },
