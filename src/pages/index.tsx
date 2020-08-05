@@ -7,6 +7,8 @@ import { css } from '@emotion/core'
 
 import IndexLayout from '../layouts'
 import Button from '../components/Button'
+import H1 from '../components/Heading1'
+import Paragraph from '../components/Paragraph'
 
 interface Edge {
   node: {
@@ -33,7 +35,7 @@ interface HomePageProps {
   data: HomePageQueryProps
 }
 
-const pageHtml2 = (
+const indexHeader = (
   <div>
     <h1
       css={css`
@@ -43,11 +45,11 @@ const pageHtml2 = (
     >
       100 Days of Gatsby
     </h1>
-    <p>
+    <Paragraph>
       This is the blog site where I'll share my thoughts about what working with Gatsby for 100 days is like. Posts are in descending order
       of when I wrote them. I don't expect anyone to take these posts seriously, but if somehow you feel the urge to react about anything
       I've said, my Twitter handle is @hassanabudu and I'm very much all ears.
-    </p>
+    </Paragraph>
     <div
       css={css`
         text-align: center;
@@ -59,15 +61,18 @@ const pageHtml2 = (
 )
 const Index = ({ data }: HomePageProps) => (
   <div>
-    <h1
+    <H1
       css={css`
         display: inline-block;
         border-bottom: 1px solid;
       `}
     >
       Index
-    </h1>
-    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+    </H1>
+    {/* bookmark */}
+    <h4>
+      {data.allMarkdownRemark.totalCount} {data.allMarkdownRemark.totalCount === 1 ? `Post` : `Posts`}
+    </h4>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <div key={node.id}>
         <Link
@@ -87,7 +92,7 @@ const Index = ({ data }: HomePageProps) => (
               — {node.frontmatter.date}
             </span>
           </h3>
-          <p>{node.excerpt}</p>
+          <Paragraph>{node.excerpt}</Paragraph>
         </Link>
       </div>
     ))}
@@ -95,7 +100,7 @@ const Index = ({ data }: HomePageProps) => (
 )
 
 const IndexPage = ({ data }: HomePageProps) => (
-  <IndexLayout centerPiece={pageHtml2}>
+  <IndexLayout centerPiece={indexHeader}>
     <Index data={data} />
   </IndexLayout>
 )

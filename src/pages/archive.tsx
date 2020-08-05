@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 
+import H1 from '../components/Heading1'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
@@ -20,24 +21,37 @@ interface Edge {
   }
 }
 
-interface HomePageQueryProps {
+interface ArchivePageQueryProps {
   allMarkdownRemark: {
     totalCount: number
     edges: Edge[]
   }
 }
 
-interface HomePageProps {
-  data: HomePageQueryProps
+interface ArchivePageProps {
+  data: ArchivePageQueryProps
 }
 
-const ArchivePage = ({ data }: HomePageProps) => (
-  <IndexLayout>
+const centerPiece = (
+  <div>
+    <H1
+      css={css`
+        text-align: center;
+      `}
+    >
+      Archive
+    </H1>
+  </div>
+)
+
+const ArchivePage = ({ data }: ArchivePageProps) => (
+  <IndexLayout centerPiece={centerPiece}>
     <Page>
       <Container>
-        <h1>Here are all the articles</h1>
         <div>
-          <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+          <h4>
+            {data.allMarkdownRemark.totalCount} {data.allMarkdownRemark.totalCount === 1 ? `Post` : `Posts`}
+          </h4>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.id}>
               <Link

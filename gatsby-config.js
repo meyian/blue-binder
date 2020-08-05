@@ -19,11 +19,6 @@ module.exports = {
         }
       }
     },
-    /*
-
-    'Noto Serif', 'Open Sans Condensed:300,700', 'Noto Serif Bold: 300, 700', 'Noto Serif italic: 700', 'Droid Serif'
-
-    */
     {
       resolve: 'gatsby-source-filesystem',
       options: {

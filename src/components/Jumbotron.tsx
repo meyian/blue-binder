@@ -57,8 +57,8 @@ const navItems: NavItem[] = [
     path: '/'
   },
   {
-    name: 'About',
-    path: '/about'
+    name: 'Suggested',
+    path: '/suggested'
   },
   {
     name: 'Archive',
@@ -66,7 +66,7 @@ const navItems: NavItem[] = [
   },
   {
     name: 'Contact Us',
-    path: '/contact'
+    path: '/contact-us'
   }
 ]
 
