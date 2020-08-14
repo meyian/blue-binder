@@ -2,6 +2,25 @@ const path = require('path')
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const maxPostsOnIndex = 5
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+
+  // console.log(page)
+  if (page.internalComponentName === 'ComponentIndex') {
+    deletePage(page)
+    // You can access the variable "house" in your page queries now
+    createPage({
+      ...page,
+      context: {
+        ...page.context,
+        maxPostsOnIndex
+      }
+    })
+  }
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 

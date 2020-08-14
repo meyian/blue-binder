@@ -2,21 +2,9 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import { colors } from '../styles/variables'
-
-/*
-
-TODO
-
-* Change the index around
-* Do a Jumbotron experiment
-* Move the jumbotron out
-
-Aside
-
-"Don't bother me, I'm workin."
-
-*/
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { colors, dimensions } from '../styles/variables'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -178,9 +166,26 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
               <nav
                 css={css`
                   display: inline-block;
+                  .desktop {
+                    display: block;
+                  }
+
+                  .mobile {
+                    display: none;
+                  }
+
+                  @media (max-width: 730px) {
+                    & .desktop {
+                      display: none;
+                    }
+                    & .mobile {
+                      display: block;
+                    }
+                  }
                 `}
               >
-                {ul}
+                <div className="desktop">{ul}</div>
+                <div className="mobile">MENU</div>
               </nav>
             </div>
             <hr
@@ -196,7 +201,7 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                height: calc(100% - 2rem); /* TODO: 2rem to a variable */
+                height: calc(100% - ${dimensions.heights.taskbar});
               `}
             >
               <Panel opacity={centerPieceOpacity} centerPiece={centerPiece} />
@@ -209,17 +214,3 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
 }
 
 export default Jumbotron
-
-/*
-
-Todo
-+ menu links render
-= links flush to the right
-* gap between links
-* Blue Binder text
-* line under links
-* centered panel for intro messge
-* done
-(* index)
-
-*/

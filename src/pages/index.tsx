@@ -59,6 +59,9 @@ const indexHeader = (
     </div>
   </div>
 )
+
+const PostsText = (number: number) => `${number} ${number === 1 ? `Post` : `Posts`}`
+
 const Index = ({ data }: HomePageProps) => (
   <div>
     <H1
@@ -67,14 +70,17 @@ const Index = ({ data }: HomePageProps) => (
         border-bottom: 1px solid;
       `}
     >
-      Index
+      The Last {PostsText(data.allMarkdownRemark.edges.length)}
     </H1>
     {/* bookmark */}
-    <h4>
-      {data.allMarkdownRemark.totalCount} {data.allMarkdownRemark.totalCount === 1 ? `Post` : `Posts`}
-    </h4>
+    <h4>{PostsText(data.allMarkdownRemark.edges.length)}</h4>
     {data.allMarkdownRemark.edges.map(({ node }) => (
-      <div key={node.id}>
+      <div
+        key={node.id}
+        css={css`
+          margin-bottom: 4rem;
+        `}
+      >
         <Link
           to={node.fields.slug}
           css={css`
@@ -106,8 +112,8 @@ const IndexPage = ({ data }: HomePageProps) => (
 )
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  query indexQuery($maxPostsOnIndex: Int) {
+    allMarkdownRemark(limit: $maxPostsOnIndex, sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {

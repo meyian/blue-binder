@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { math } from 'polished'
 
 import 'modern-normalize'
 import '../styles/normalize'
 
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import { colors, dimensions } from '../styles/variables'
 import LayoutRoot from '../components/LayoutRoot'
 import Jumbotron from '../components/Jumbotron'
 import LayoutMain from '../components/LayoutMain'
@@ -32,32 +34,84 @@ interface SectionProps {
 
 const StyledSection = styled.section`
   position: relative;
-  top: ${(props: SectionProps) => (props.hasCenterPiece ? `100vh` : `150px`)}; /* TODO: move this into a variable */
+  top: ${(props: SectionProps) => (props.hasCenterPiece ? `100vh` : dimensions.heights.panelMarginTop)};
   background-color: #f8f8f8;
+`
+
+const StyledPanelDiv = styled.div`
+  position: relative;
+  bottom: ${dimensions.heights.panelOffset};
+  left: ${dimensions.heights.panelOffset};
+  width: calc(100% - ${math(`${dimensions.heights.panelOffset.toString()} * 2`)});
+  background-color: white;
+  padding: 5rem;
+  border-radius: 60px;
+  -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
+  box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
+
+  & h1 {
+    color: ${colors.electric};
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  & pre {
+    background-color: aliceblue;
+    overflow: scroll;
+  }
+
+  & p {
+    font-family: 'Georgia', san-serif;
+  }
 `
 
 const Panel = ({ children, hasCenterPiece }: PanelProps) => (
   <StyledSection hasCenterPiece={hasCenterPiece}>
-    <div
-      css={css`
-        position: relative;
-        bottom: 50px; /* TODO: move this into a variable */
-        left: 50px;
-        width: calc(100% - 100px);
-        background-color: white;
-        padding: 5rem;
-        border-radius: 60px;
-        -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
-        box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
-      `}
-    >
-      {children}
-    </div>
+    <StyledPanelDiv>{children}</StyledPanelDiv>
     <div
       css={css`
         height: 100px;
+        text-align: center;
       `}
-    />
+    >
+      <div>
+        <h4
+          css={css`
+            color: lightblue;
+            margin-bottom: 0;
+          `}
+        >
+          Blue Binder
+        </h4>
+        <span
+          css={css`
+            color: gray;
+          `}
+        >
+          Created by{' '}
+        </span>
+        <a
+          css={css`
+            color: black;
+          `}
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://hassanabudu.com/"
+        >
+          Hassan Abudu
+        </a>
+      </div>
+      <p
+        css={css`
+          color: gray;
+        `}
+      >
+        &copy; {new Date().getFullYear()}
+      </p>
+    </div>
   </StyledSection>
 )
 
@@ -81,10 +135,14 @@ const IndexLayout = ({ children, centerPiece }: IndexLayoutProps) => (
     render={(data: StaticQueryProps) => {
       const [opacity, setOpacity] = useState(1)
 
-      document.addEventListener('scroll', () => {
-        const { scrollTop } = document.documentElement
-        setOpacity(1 - scrollTop / window.innerHeight)
-      })
+      try {
+        document.addEventListener('scroll', () => {
+          const { scrollTop } = document.documentElement
+          setOpacity(1 - scrollTop / window.innerHeight)
+        })
+      } catch (e) {
+        console.log(e)
+      }
 
       return (
         <LayoutRoot>

@@ -46,6 +46,11 @@ export const widths = {
 }
 
 export const dimensions = {
+  heights: {
+    taskbar: '2rem',
+    panelOffset: '50px',
+    panelMarginTop: '150px'
+  },
   fontSize: {
     regular: 16,
     large: 18
