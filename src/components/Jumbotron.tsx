@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { colors, dimensions } from '../styles/variables'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -67,27 +66,15 @@ const Panel = ({ centerPiece, opacity }: PanelProps) => {
   return (
     <div
       css={css`
-        width: 500px;
+        max-width: 500px;
         opacity: ${opacity};
+        padding: 10px;
       `}
     >
       {centerPiece}
     </div>
   )
 }
-
-// const SuggestedMaterial: React.FC = () => {
-//   return (
-//     <div>
-//       <h2>Suggested Reading Material</h2>
-//       <p>
-//         If you're here, I truly respect your time, and as such, can't really recommend anything here. It's like I'm the waiter at your
-//         restaurant, trying to save you. But if you insist to sitting down for something here, I recommend the following posts:{' '}
-//       </p>
-//       <p>[none at the moment]</p>
-//     </div>
-//   )
-// }
 
 interface JumbotronProps {
   centerPiece?: JSX.Element[] | JSX.Element | string
@@ -116,7 +103,7 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
         <li
           css={css`
             display: inline-block;
-            list-decoration: none;
+            list-style: none;
           `}
         >
           <StyledLink key={path} to={path}>
@@ -128,6 +115,8 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
   )
 
   const Header = centerPiece ? StyledHeader : StyledHeaderNoPanel
+
+  const [menuVisible, setMenuVisible] = useState(false)
 
   return (
     <StaticQuery
@@ -143,7 +132,7 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
       `}
       render={(data: StaticQueryProps) => {
         return (
-          <Header>
+          <Header onClick={() => setMenuVisible(false)}>
             <div
               css={css`
                 width: 100vw;
@@ -185,7 +174,57 @@ const Jumbotron = ({ centerPiece, centerPieceOpacity }: JumbotronProps) => {
                 `}
               >
                 <div className="desktop">{ul}</div>
-                <div className="mobile">MENU</div>
+                <div className="mobile">
+                  <button
+                    type="button"
+                    css={css`
+                      background-color: transparent;
+                      border: none;
+                      color: white;
+                      position: relative;
+                      right: 10px;
+                    `}
+                    onClick={event => {
+                      event.stopPropagation()
+                      setMenuVisible(!menuVisible)
+                    }}
+                  >
+                    MENU
+                  </button>
+                  <div
+                    css={css`
+                      position: absolute;
+                      right: 10px;
+                      background-color: white;
+                      z-index: 100;
+                      display: ${menuVisible ? 'block' : 'none'};
+                      border-radius: 5px;
+                      padding: 10px;
+                    `}
+                  >
+                    {navItems.map(({ name, path }) => (
+                      <li
+                        css={css`
+                          list-style: none;
+                          padding: 0;
+                          margin: 0;
+                        `}
+                      >
+                        <StyledLink
+                          css={css`
+                            padding: 0;
+                            margin: 0;
+                            color: gray;
+                          `}
+                          key={path}
+                          to={path}
+                        >
+                          {name}
+                        </StyledLink>
+                      </li>
+                    ))}
+                  </div>
+                </div>
               </nav>
             </div>
             <hr

@@ -21,9 +21,9 @@ const suggestedPageContent: JSX.Element = (
   <div>
     <Paragraph>
       I'm sorry, there's really nothing here I can suggest to you at the moment. I mean, you're free to pick something from the &nbsp;
-      <a href="/archive">archive</a> to read, but don't blame me if you read something, and then you're bored and annoyed that your time was
-      wasted. As for myself, if the writing here were printed, I wouldn't even use it as toilet paper. I'll be that frank, on behalf of your
-      valuable time.
+      <a href="/archive">archive</a> to read, but don't blame me if you read something, and then you're bored and then annoyed that your
+      time was wasted. As for myself, if the writing here were printed, I wouldn't even use it as toilet paper. I'll be that frank, on
+      behalf of your valuable time.
     </Paragraph>
     <Paragraph>
       Okay, well I've heard stories about what you can get away with as toilet paper, so maybe my writing isn't that bad. But if you feel

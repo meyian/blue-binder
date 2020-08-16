@@ -49,6 +49,10 @@ const StyledPanelDiv = styled.div`
   -webkit-box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
   box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
 
+  @media (max-width: 730px) {
+    padding: 2rem;
+  }
+
   & h1 {
     color: ${colors.electric};
     text-decoration: none;
@@ -91,7 +95,7 @@ const Panel = ({ children, hasCenterPiece }: PanelProps) => (
             color: gray;
           `}
         >
-          Created by{' '}
+          Theme by{' '}
         </span>
         <a
           css={css`
