@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import { colors, dimensions } from '../styles/variables'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 const StyledHeader = styled.header`
   width: 100%;
