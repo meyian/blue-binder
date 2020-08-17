@@ -5,7 +5,7 @@ date: '2020-08-15'
 
 To accompany the new Gatsby website, Nat Alison, a former Gatsby contractor, started a Twitter thread about her unhappy experience working with the Gatsby company.
 
-!(Link to Twitter thread)[https://twitter.com/tesseralis/status/1293649007739191296]
+[Link to Twitter thread](https://twitter.com/tesseralis/status/1293649007739191296)
 
 She says a lot in this thread. At some point in reading, feeling cozy, I wanted a hot mug of black tea to enjoy along with it. It was a stimulating read. I think the major point of contention was that after trying in different ways to address shortcomings with the company and the project she was working on, she was eventually told her time was up and was given a golden handshake.
 
