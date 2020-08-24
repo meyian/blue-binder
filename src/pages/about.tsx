@@ -65,7 +65,7 @@ const SignupForm = () => {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'newsletter', ...values })
+        body: encode({ 'form-name': 'contact', ...values })
       })
         .then(() => alert('Success!'))
         .catch(error => alert(error))
@@ -74,7 +74,7 @@ const SignupForm = () => {
   return (
     <form
       method="POST"
-      name="newsletter"
+      name="contact"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={formik.handleSubmit}
@@ -85,7 +85,7 @@ const SignupForm = () => {
         margin-top: 3rem;
       `}
     >
-      <input type="hidden" name="form-name" value="newsletter" />
+      <input type="hidden" name="form-name" value="contact" />
       <div>
         <label
           htmlFor="email"
