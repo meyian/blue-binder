@@ -44,6 +44,12 @@ const HiddenForm = () => {
   )
 }
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&')
+}
+
 const SignupForm = () => {
   // Pass the useFormik() hook initial form values and a submit function that will
   // be called when the form is submitted
@@ -55,6 +61,7 @@ const SignupForm = () => {
     },
     validate,
     onSubmit: values => {
+      console.log('onSubmitting')
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
