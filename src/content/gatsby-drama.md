@@ -3,11 +3,11 @@ title: 'The Great Gatsby Drama'
 date: '2020-08-15'
 ---
 
-To accompany the new Gatsby website, Nat Alison, a former Gatsby contractor, started a Twitter thread about her unhappy experience working with the Gatsby company.
+To accompany the launch of the new Gatsby website, Nat Alison, a former Gatsby contractor, started a Twitter thread about her unhappy experience working with the Gatsby company.
 
 [Link to Twitter thread](https://twitter.com/tesseralis/status/1293649007739191296)
 
-She says a lot in this thread. At some point in reading, feeling cozy, I wanted a hot mug of black tea to enjoy along with it. It was a stimulating read. I think the major point of contention was that after trying in different ways to address shortcomings with the company and the project she was working on, she was eventually told her time was up and was given a golden handshake.
+She says a lot in this thread. At some point in reading, I, feeling cozy, wanted a hot mug of black tea to enjoy along with it. It was a stimulating, chin-stroking read. I think the major point of contention was that after trying in different ways to address shortcomings with the company and the project she was working on, she was eventually told her time was up and was given a golden handshake.
 
 While working as a contributor to the Gatsby codebase, I had one short interaction with Nat, and it was so positive that I went to look her up. She's also an artist, has a popular Open Source contribution, and an army of Twitter followers. So I was surprised that her involvement with Gatsby, a project I'm very invested in, gave her such a bitter aftertaste that she wrote an over 60-tweet thread about how unfun it all was for her. Immediately, I took her side. But after a couple days to think about it, though, I'm a bit more torn.
 
