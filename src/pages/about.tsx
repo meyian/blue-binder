@@ -59,22 +59,19 @@ const SignupForm = () => {
     },
     validate,
     onSubmit: values => {
-      console.log('SignupForm > values')
-      console.log(values)
-
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...values })
+        body: encode({ 'form-name': 'newsletter', ...values })
       })
-        .then(() => alert('Success!'))
-        .catch(error => alert(error))
+        .then(() => console.log('Success!'))
+        .catch(error => console.log(error))
     }
   })
   return (
     <form
       method="POST"
-      name="contact"
+      name="newsletter"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={formik.handleSubmit}
@@ -214,7 +211,6 @@ const About = ({ data }: AboutPageProps) => (
           interesting from Newsletters I'm subscribed to, which cover technology and current affairs.
         </p>
         <SignupForm />
-        <ContactForm />
       </Container>
     </Page>
   </IndexLayout>
