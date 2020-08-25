@@ -55,13 +55,13 @@ const SignupForm = () => {
   // be called when the form is submitted
   const formik = useFormik({
     initialValues: {
-      'bot-field': '',
-      'form-name': 'contact',
       email: ''
     },
     validate,
     onSubmit: values => {
-      console.log('onSubmitting')
+      console.log('SignupForm > values')
+      console.log(values)
+
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -85,7 +85,6 @@ const SignupForm = () => {
         margin-top: 3rem;
       `}
     >
-      <input type="hidden" name="form-name" value="contact" />
       <div>
         <label
           htmlFor="email"
@@ -214,6 +213,7 @@ const About = ({ data }: AboutPageProps) => (
           If you sign up for the newsletter, I'll start writing and sending stuff. It'll probably be a digested version of whatever I find
           interesting from Newsletters I'm subscribed to, which cover technology and current affairs.
         </p>
+        <SignupForm />
         <ContactForm />
       </Container>
     </Page>
