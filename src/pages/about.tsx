@@ -115,7 +115,7 @@ class ContactForm extends React.Component {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state })
+      body: encode({ 'form-name': 'newsletter', ...this.state })
     })
       .then(() => alert('Success!'))
       .catch(error => alert(error))
@@ -128,7 +128,7 @@ class ContactForm extends React.Component {
   render() {
     const { name, email, message } = this.state
     return (
-      <form method="POST" name="contact" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
+      <form method="POST" name="newsletter" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
         <p>
           <label>
             Your Name: <input type="text" name="name" value={name} onChange={this.handleChange} />
