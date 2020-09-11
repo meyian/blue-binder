@@ -55,7 +55,13 @@ const indexHeader = (
         text-align: center;
       `}
     >
-      <Button>Read More</Button>
+      <Button
+        onClick={() => {
+          window.location.href = '/about'
+        }}
+      >
+        Read More
+      </Button>
     </div>
   </div>
 )

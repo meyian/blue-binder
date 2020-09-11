@@ -20,11 +20,4 @@ const StyledButton = styled.button`
     color: grey;
   }
 `
-
-interface ButtonProps {
-  className?: string
-}
-
-const Button: React.FC<ButtonProps> = ({ children, className }) => <StyledButton className={className}>{children}</StyledButton>
-
-export default Button
+export default StyledButton

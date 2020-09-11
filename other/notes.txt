@@ -3,19 +3,76 @@ Todo
 The todo list:
 + create an archive page
 + get the jumotron up
-* polish the jumbotron
-* figure out how the original theme works
-* put structure to the homepage
-* decide on your index (PS)
-* code your index
-* selected picks
-* archive
++ polish the jumbotron
++ figure out how the original theme works
++ put structure to the homepage (sun 26 jul, 3:43 pm)
++ polish the jumbotron (sun 26 jul)
++ add the button (mon 27 jul)
+  - i could use material/ui, and style it properly...
+  - or i could just do it plain
++ move work to a new layout
+  + move to new layout (mon 27 jul)
+  = make a panel message a part of the layout
++ decide on your index (PS)
++ code your index
++ write content for these pages:
+  + About, Archive, Contact Us (tue 4 aug)
+  + georgia all ps (wed 5 aug)
++ suggested
++ archive
++ publish the damn site
+* publish the damn theme
+  - padding for mobile view
+  - menu slides out from above in mobile view
+  - paragraphs are georgia
+  - delete comments
+  - header task bar needs a height variable
+  - margin at the top in non-centerpiece view needs variable
+  = panel offset needs variable
+  + copyright info at the bottom
+  - create a new github repo
+  - add to themejam, etc.
+  - announce it
 * Page view counter/Google analytics
+-
+challenge accessibility
+
+* copy over notes
+* link from see more to the about page
+* open up a page, see if you can tab around
+* decide on one of these days to do a review, so you can publish this thing
+
+
+
+Things to write about
+
+* the selfie
+* service workers
+  - how i'm in a huge rush, but at least that far
+
 
 
 Theme to duplicate
 
 https://preview.themeforest.net/item/typology-text-based-minimal-wordpress-blog-theme/full_screen_preview/19547842
+
+
+
+
+
+---
+
+
+
+
+
+
+Tue 4 Aug
+
+Looks like a cloud, don't it?
+
+
+
 
 
 Fri 24 Jul

@@ -28,26 +28,40 @@ const validate = (values: Value) => {
   const errors: Value = {}
 
   if (!values.email) {
-    errors.email = 'Required'
+    errors.email = 'Email address is a required field'
   }
 
   return errors
 }
 
-const HiddenForm = () => {
-  return (
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <textarea name="message" />
-    </form>
-  )
-}
-
-const encode = data => {
+const encode = (data: any) => {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&')
+}
+
+const setMessage = (message: string) => {
+  const messageDiv = document.getElementById('messages')
+
+  if (messageDiv) {
+    messageDiv.innerText = message
+
+    setTimeout(() => {
+      messageDiv.innerText = ''
+    }, 4000)
+  }
+}
+
+const setError = (message: string) => {
+  const messageDiv = document.getElementById('messages')
+
+  if (messageDiv) {
+    messageDiv.innerHTML = `<span style="color: darkred">${message}</div>`
+
+    setTimeout(() => {
+      messageDiv.innerText = ''
+    }, 4000)
+  }
 }
 
 const SignupForm = () => {
@@ -64,8 +78,8 @@ const SignupForm = () => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'newsletter', ...values })
       })
-        .then(() => console.log('Success!'))
-        .catch(error => console.log(error))
+        .then(() => setMessage('Thank you for signing up. Expect an email shortly.'))
+        .catch(() => setError(`Unable to submit email to our cloud servers`))
     }
   })
   return (
@@ -89,63 +103,21 @@ const SignupForm = () => {
             margin-right: 0.5rem;
           `}
         >
-          Email Address
+          <span
+            css={css`
+              margin-right: 1rem;
+            `}
+          >
+            Email Address
+          </span>
+          <input id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />
         </label>
-        <input id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />
         <button type="submit">Submit</button>
+        <div id="messages" />
         {formik.errors.email ? <div>{formik.errors.email}</div> : null}
       </div>
     </form>
   )
-}
-
-class ContactForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { name: '', email: '', message: '' }
-  }
-
-  /* Here’s the juicy bit for posting the form submission */
-
-  handleSubmit = e => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'newsletter', ...this.state })
-    })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error))
-
-    e.preventDefault()
-  }
-
-  handleChange = e => this.setState({ [e.target.name]: e.target.value })
-
-  render() {
-    const { name, email, message } = this.state
-    return (
-      <form method="POST" name="newsletter" data-netlify="true" netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
-        <p>
-          <label>
-            Your Name: <input type="text" name="name" value={name} onChange={this.handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Email: <input type="email" name="email" value={email} onChange={this.handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message: <textarea name="message" value={message} onChange={this.handleChange} />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-    )
-  }
 }
 
 const centerPiece = (
@@ -164,7 +136,6 @@ const About = ({ data }: AboutPageProps) => (
   <IndexLayout centerPiece={centerPiece}>
     <Page>
       <Container>
-        <HiddenForm />
         <p>This is a blog about three things, maybe.</p>
         <ol
           css={css`
@@ -174,13 +145,14 @@ const About = ({ data }: AboutPageProps) => (
           `}
         >
           <li>My 100-day journey with Gatsby</li>
-          <li>Thoughts about the plainly-taken tea I drink as I make this</li>
+          <li>Thoughts about the plainly-taken black tea that I drink as I code this</li>
           <li>Any other topic I want to write about and share</li>
         </ol>
         <p>
-          I'm spending 100 hours daAs part the challenges the Gatsby team suggested as course material for these 100 days. Another one the
-          tasks in these challenges was that I create an about page with a black-and-white selfie on it. I'm so vain that I don't like any
-          of my pictures, but they asked, so here's the selfie:
+          I'm doing the 100DaysOfGatsby challenge, where I spend an hour each day working on Gatsby for 100 days. Creating this blog is one
+          of the suggested challenges from the Gatsby team as part of this 100-day regime. for the . Another one the challenges was creating
+          an about page on this blog with a black-and-white selfie on it. I'm so vain that I don't like any of my pictures, but they asked,
+          so here's the selfie:
         </p>
         <div
           css={css`
@@ -190,11 +162,11 @@ const About = ({ data }: AboutPageProps) => (
             margin-bottom: 2rem;
           `}
         >
-          <Img fixed={data.file.childImageSharp.fixed} />
+          <Img alt="Picture of the author" fixed={data.file.childImageSharp.fixed} />
         </div>
         <p>
           That's me, not smiling at the camera. If you met me somewhere, that's what I'd look like before I pull the laser out and start
-          blasting at the T-1000 behind you.
+          blasting at the T-1000 behind you. In reality, it's the official photograph my workplace asked for.
         </p>
         <hr />
         <h2
