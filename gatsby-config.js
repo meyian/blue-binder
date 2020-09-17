@@ -12,6 +12,30 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-guess-js',
+      options: {
+        // Find the view id in the GA admin in a section labeled "views"
+        GAViewID: `229107995`,
+        // Add a JWT to get data from GA
+        jwt: {
+          client_email: `blue-binder@blue-binder.iam.gserviceaccount.com`,
+          private_key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || `none`
+        },
+        minimumThreshold: 0.03,
+        // The "period" for fetching analytic data.
+        period: {
+          startDate: new Date('2018-1-1'),
+          endDate: new Date()
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
