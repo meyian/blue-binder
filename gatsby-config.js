@@ -11,34 +11,42 @@ module.exports = {
     }
   },
   plugins: [
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: 'UA-102729680-3', // process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
+    //     anonymize: true
+    //   }
+    // },
     {
-      resolve: 'gatsby-plugin-guess-js',
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        // Find the view id in the GA admin in a section labeled "views"
-        GAViewID: `229107995`,
-        // Add a JWT to get data from GA
-        jwt: {
-          client_email: `blue-binder@blue-binder.iam.gserviceaccount.com`,
-          private_key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || `none`
-        },
-        minimumThreshold: 0.03,
-        // The "period" for fetching analytic data.
-        period: {
-          startDate: new Date('2018-1-1'),
-          endDate: new Date()
-        }
+        // your google analytics tracking id
+        trackingId: `UA-102729680-3`,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true
       }
     },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-102729680-3', // process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'none',
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true,
-        pageTransitionDelay: 0,
-        defer: false
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-guess-js',
+    //   options: {
+    //     // Find the view id in the GA admin in a section labeled "views"
+    //     GAViewID: `229107995`,
+    //     // Add a JWT to get data from GA
+    //     jwt: {
+    //       client_email: `blue-binder@blue-binder.iam.gserviceaccount.com`,
+    //       private_key: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY || `none`
+    //     },
+    //     minimumThreshold: 0.03,
+    //     // The "period" for fetching analytic data.
+    //     period: {
+    //       startDate: new Date('2018-1-1'),
+    //       endDate: new Date()
+    //     }
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
